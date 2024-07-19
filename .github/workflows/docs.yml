@@ -20,11 +20,11 @@ jobs:
           wget --no-verbose "https://github.com/doxygen/doxygen/releases/download/Release_${DOXYGEN_VERSION//./_}/doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz"
           tar xf doxygen-${DOXYGEN_VERSION}.linux.bin.tar.gz
           echo "${PWD}/doxygen-${DOXYGEN_VERSION}/bin" >> $GITHUB_PATH
-          pip install -r doc/requirements.txt
+          pip install -r bsp/doc/requirements.txt
 
       - name: Build
         run: |
-          cd doc
+          cd bsp/doc
           doxygen
 
           SPHINXOPTS="-W" make html
@@ -36,4 +36,4 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: doc/deploy
+          path: bsp/doc/deploy
