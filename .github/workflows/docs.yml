@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          cd doc
+          cd bsp/doc
           doxygen
 
           SPHINXOPTS="-W" make html
@@ -36,4 +36,4 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: doc/deploy
+          path: bsp/doc/deploy
